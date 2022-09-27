@@ -1,0 +1,6 @@
+customhost = "ccdatabase.cpsb9o3bch7v.us-east-1.rds.amazonaws.com"
+customuser = "aws_user"
+custompass = "bait3273"
+customdb = "ccdatabase"
+custombucket = "awc-bucket"
+customregion = "us-east-1"
