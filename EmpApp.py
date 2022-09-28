@@ -23,43 +23,43 @@ output = {}
 table = 'attendance'
 
 
-@app.route("/attendance/", methods=['GET', 'POST'])
+@app.route("/attendance/", methods=['GET'])
 def attendance():
     return render_template('attendance.html')
 
-#Insert Attendance
-@app.route("/attendance/output", methods=['POST'])
-def attendance_output():
-    # if request.method == 'POST': 
-        #show
-        emp_id = request.form['emp_id']
-        date = request.form['date']
-        time = request.form['time']
-        status = request.form['status']
+# #Insert Attendance
+# @app.route("/attendance/output", methods=['POST'])
+# def attendance_output():
+#     # if request.method == 'POST': 
+#         #show
+#         emp_id = request.form['emp_id']
+#         date = request.form['date']
+#         time = request.form['time']
+#         status = request.form['status']
 
-        #insert
-        insert_sql = "INSERT INTO attendance VALUES (%s, %s, %s, %s)"
-        cursor = db_conn.cursor()
+#         #insert
+#         insert_sql = "INSERT INTO attendance VALUES (%s, %s, %s, %s)"
+#         cursor = db_conn.cursor()
 
-        if emp_id =='' or date =='' or time =='' or status =='':
-            errorMsg = "Please fill in all the fields"
-            buttonMsg = "HELLO"
-            action = "/attendance/"
-            return render_template('error-message.html',errorMsg=errorMsg,buttonMsg=buttonMsg,action=action)
+#         if emp_id =='' or date =='' or time =='' or status =='':
+#             errorMsg = "Please fill in all the fields"
+#             buttonMsg = "HELLO"
+#             action = "/attendance/"
+#             return render_template('error-message.html',errorMsg=errorMsg,buttonMsg=buttonMsg,action=action)
 
         
 
-        try:
-             cursor.execute(insert_sql, (emp_id, date, time, status))
-             db_conn.commit()
-        except Exception as e:
-            return str(e)
+#         try:
+#              cursor.execute(insert_sql, (emp_id, date, time, status))
+#              db_conn.commit()
+#         except Exception as e:
+#             return str(e)
 
-        finally:
-            cursor.close()
+#         finally:
+#             cursor.close()
 
-        print("all modification done...")
-        return render_template('attendance.html', emp_id=emp_id, date=date, time=time, status=status)
+#         print("all modification done...")
+#         return render_template('attendance.html', emp_id=emp_id, date=date, time=time, status=status)
 
 
 # @app.route("/addattendance", methods=['POST'])
