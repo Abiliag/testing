@@ -23,7 +23,7 @@ output = {}
 table = 'attendance'
 
 
-@app.route("/attendance/", methods=['GET'])
+@app.route("/attendance/", methods=['GET','POST'])
 def attendance():
     return render_template('attendance.html')
 
