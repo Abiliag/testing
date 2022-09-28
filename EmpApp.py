@@ -28,13 +28,18 @@ def attendance():
     return render_template('attendance.html')
 
 #Insert Attendance
-@app.route("/attendance/", methods=['POST','GET'])
-def attendance():
-    if request.method == 'POST': 
+@app.route("/attendance/output", methods=['POST'])
+def attendance_output():
+    # if request.method == 'POST': 
+        #show
         emp_id = request.form['emp_id']
         date = request.form['date']
         time = request.form['time']
         status = request.form['status']
+
+        #insert
+        insert_sql = "INSERT INTO attendance VALUES (%s, %s, %s, %s)"
+        cursor = db_conn.cursor()
 
         if emp_id =='' or date =='' or time =='' or status =='':
             errorMsg = "Please fill in all the fields"
@@ -42,8 +47,7 @@ def attendance():
             action = "/attendance/"
             return render_template('error-message.html',errorMsg=errorMsg,buttonMsg=buttonMsg,action=action)
 
-        insert_sql = "INSERT INTO attendance VALUES (%s, %s, %s, %s)"
-        cursor = db_conn.cursor()
+        
 
         try:
              cursor.execute(insert_sql, (emp_id, date, time, status))
@@ -56,9 +60,6 @@ def attendance():
 
         print("all modification done...")
         return render_template('attendance.html', emp_id=emp_id, date=date, time=time, status=status)
-
-    else:
-      return render_template('attendance.html')
 
 
 # @app.route("/addattendance", methods=['POST'])
