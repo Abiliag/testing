@@ -5,7 +5,7 @@ https://templatemo.com/tm-561-purple-buzz
 
 */
 .custom-leave {
-    display: flex;
+    display:-webkit-flex;
     flex-direction: column;
     margin-top: 50px;
     /* padding-left: 10px;
