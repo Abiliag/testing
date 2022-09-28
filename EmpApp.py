@@ -38,7 +38,7 @@ def attendance():
     return render_template('attendance.html')
 
 #Insert Attendance
-@app.route("/attendance/", methods=['POST'])
+@app.route("/attendance/", methods=['GET','POST'])
 def attendance_input():
     # if request.method == 'POST': 
         #show to output from db
