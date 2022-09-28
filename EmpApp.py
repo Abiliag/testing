@@ -86,7 +86,7 @@ def attendance_viewAll():
 
         while True:
             attendance_view_data = cur.fetchone()
-            if attendance_view_data.rowcount == 0:
+            if attendance_view_data is None:
                 break
                 # errorMsg = "The data no exist"
                 # buttonMsg = "Fields is NULL"
