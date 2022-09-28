@@ -37,7 +37,7 @@ def about():
 def attendance():
     return render_template('attendance.html')
 
-#Insert Attendance
+#Insert and output 1 Attendance
 @app.route("/attendance/", methods=['GET','POST'])
 def attendance_input():
     # if request.method == 'POST': 
