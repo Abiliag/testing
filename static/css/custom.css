@@ -4,15 +4,15 @@ Custom CSS for TemplateMo 561 Purple Buzz
 https://templatemo.com/tm-561-purple-buzz
 
 */
-.custom-leave {
+/* .custom-leave {
     display:-webkit-flex;
     flex-direction: column;
     margin-top: 50px;
     /* padding-left: 10px;
     padding-right: 10px; */
-    width: 100%;
+    /* width: 100%;
     border: 1px solid black;
-}
+} */ */
 
 .custom-leave-tb {
     display: flex;
