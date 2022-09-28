@@ -6,7 +6,7 @@ import boto3
 from config import *
 import datetime as dt
 
-app = Flask(__name__,template_folder='template')
+app=Flask(__name__,template_folder='template')
 
 bucket = custombucket
 region = customregion
@@ -20,7 +20,17 @@ db_conn = connections.Connection(
 
 )
 output = {}
+table = 'employee'
+table = 'leave'
 table = 'attendance'
+
+@app.route("/")
+def home():
+    return render_template('home.html')
+
+@app.route("/about/", methods=['GET','POST'])
+def about():
+    return render_template('about.html')
 
 
 @app.route("/attendance/", methods=['GET','POST'])
