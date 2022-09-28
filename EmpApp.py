@@ -6,7 +6,7 @@ import boto3
 from config import *
 import datetime as dt
 
-app = Flask(__name__,template_folder='templates')
+app = Flask(__name__,template_folder='template')
 
 bucket = custombucket
 region = customregion
