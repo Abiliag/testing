@@ -73,7 +73,28 @@ def attendance_input():
 
 @app.route("/attendance/view", methods=['GET','POST'])
 def attendance_viewAll():
-    return render_template('attendance-view.html')
+
+    emp_id ==" "
+    emp_id = request.form['emp_id']
+
+    cur = db_conn.cursor()
+    select_attendance_sql = "SELECT * FROM attendance where emp_id = (%s)"
+    
+    try:
+        cur.execute(select_attendance_sql,(emp_id))
+        if cur.rowcount == 0:
+            errorMsg = "The data no exist"
+            buttonMsg = "Fields is NULL"
+            action = "/attendance/"
+            return render_template ('error-message.html',errorMsg=errorMsg,buttonMsg=buttonMsg,action=action)
+
+    except Exception as e:
+        return str(e)
+    
+    finally:
+        cur.close()
+
+    return render_template('attendance-view.html',leave_view=leave_view)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
