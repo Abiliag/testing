@@ -74,7 +74,6 @@ def attendance_input():
 @app.route("/attendance/view", methods=['GET','POST'])
 def attendance_viewAll():
 
-    emp_id ==" "
     emp_id = request.form['emp_id']
 
     cur = db_conn.cursor()
