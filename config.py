@@ -1,6 +1,6 @@
 customhost = "attendance1.cwuynnhawpb9.us-east-1.rds.amazonaws.com"
 customuser = "aws_user"
 custompass = "Bait3273"
-customdb = "attendance1"
+customdb = "attendance"
 custombucket = "awd-bucket"
 customregion = "us-east-1"
