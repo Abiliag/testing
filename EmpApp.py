@@ -71,7 +71,7 @@ def attendance_input():
         return render_template('attendance-output.html', emp_id=emp_id, date=date, time=time, status=status)
 
 
-@app.route("/attendance/view", methods=['GET','POST'])
+@app.route("/attendance/view", methods=['POST'])
 def attendance_viewAll():
 
     # emp_id = request.form['emp_id']
